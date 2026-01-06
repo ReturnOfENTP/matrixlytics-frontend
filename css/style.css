@@ -1,0 +1,154 @@
+/* ======================= */
+/* GLOBAL STYLES */
+/* ======================= */
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #0b0b0b;
+    color: #8fff00;
+  }
+  
+  /* ======================= */
+  /* NAVBAR */
+  /* ======================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    height: 60px;
+    background-color: #0b0b0b;
+    border-bottom: 2px solid #8fff00;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-left,
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #8fff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .site-name, .page-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #8fff00;
+  }
+  
+  .page-label.active {
+    border-bottom: 2px solid #8fff00;
+  }
+  
+  .nav-btn {
+    color: #8fff00;
+    border: 1px solid #8fff00;
+    padding: 6px 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    transition: all 0.2s;
+    background-color: transparent;
+  }
+  
+  .nav-btn:hover {
+    background-color: #8fff00;
+    color: #0b0b0b;
+  }
+  
+  .user-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #8fff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* ======================= */
+  /* HERO SECTION */
+  /* ======================= */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 500px);
+    text-align: center;
+    padding: 60px 24px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+  }
+  
+  /* ======================= */
+  /* FEATURES / PRICING TEASER */
+  /* ======================= */
+  .features {
+    text-align: center;
+    padding: 40px 24px;
+  }
+  
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  
+  .feature-card {
+    border: 1px solid #8fff00;
+    padding: 24px;
+    background-color: #0b0b0b;
+    border-radius: 12px;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  
+  .feature-card:hover {
+    background-color: #8fff00;
+    color: #0b0b0b;
+  }
+  
+  /* ======================= */
+  /* RESPONSIVE */
+  /* ======================= */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      height: auto;
+      padding: 12px;
+    }
+  
+    .navbar-left,
+    .navbar-right {
+      gap: 12px;
+      margin: 4px 0;
+    }
+  }
+  
