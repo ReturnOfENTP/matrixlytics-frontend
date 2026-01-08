@@ -2,11 +2,13 @@
 /* GLOBAL STYLES */
 /* ======================= */
 body {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    background-color: #0b0b0b;
-    color: #8fff00;
-  }
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background-color: #0b0b0b;
+  color: #8fff00;
+
+  padding-top: 0px; /* same as navbar height */
+}
   
   /* ======================= */
   /* NAVBAR */
@@ -15,21 +17,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 24px;
+    padding: 12px 24px;        /* keep spacing */
     height: 60px;
+    max-width: 100vw;           /* do not exceed viewport width */
+    width: 100%;                /* fill available space */
     background-color: #0b0b0b;
     border-bottom: 2px solid #8fff00;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .navbar-left,
-  .navbar-right {
+    box-sizing: border-box;     /* include padding in width */
+    overflow-x: hidden;         /* prevent horizontal scroll */
+    transition: transform 0.3s ease;
+}
+
+.navbar-left,
+.navbar-right {
     display: flex;
     align-items: center;
     gap: 16px;
-  }
+    flex-wrap: wrap;          /* wrap buttons to next line if needed */
+}
   
   .logo {
     width: 45px;
@@ -320,8 +325,39 @@ body {
   margin-bottom: 20px;
 }
 
+/* Desktop view */
+#example-container {
+  width: 600px;           /* or whatever your normal container width */
+  padding: 20px;
+  border: 3px solid #000; /* visible border on desktop */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#example-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile view */
+@media (max-width: 700px) {
+  #example-container {
+      border: none;       /* remove the border */
+      width: 75%;         /* shrink container by ~25% */
+      padding: 10px;      /* optional: maintain small inner gap */
+      margin: 0 auto;
+  }
+
+  #example-container img {
+      width: 100%;        /* continue scaling with container */
+      height: auto;
+  }
+}
+
+
 .example-box {
-  width: 600px; /* adjust as needed */
+  width: 685px; /* adjust as needed */
   max-width: 120vw;
   padding: 20px 40px;    /* more padding on the sides */
   border: 2px solid #00FF00; /* Pip-Boy green border */
@@ -339,6 +375,22 @@ body {
   cursor: pointer;
 }
 
+/* Mobile view */
+@media (max-width: 700px) {
+  .example-box {
+      width: 85%;            /* shrink container by ~25% */
+      padding: 10px;         /* keep a small gap */
+      border: none;          /* remove border on mobile */
+      margin: 0 auto;        /* stay centered */
+  }
+
+  .example-img {
+      width: 100%;           /* continue scaling with container */
+      height: auto;
+  }
+}
+
+
 .global-stats {
   margin: 40px 0;
   text-align: center;
@@ -347,7 +399,6 @@ body {
 .global-stats h2 {
   font-family: 'Courier New', monospace;
   color: #00FF00;
-  margin-bottom: 20px;
 }
 
 .stats-grid {
