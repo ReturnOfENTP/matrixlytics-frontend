@@ -32,10 +32,13 @@ body {
   }
   
   .logo {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #8fff00;
+    width: 45px;
+    height: 45px;
+    border: 0px solid #8fff00;
     display: flex;
+    background-image: url('/assets/images/pipboyapp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     align-items: center;
     justify-content: center;
   }
@@ -52,7 +55,7 @@ body {
   
   .nav-btn {
     color: #8fff00;
-    border: 1px solid #8fff00;
+    border: 0px solid #8fff00;
     padding: 6px 12px;
     text-decoration: none;
     display: inline-flex;
@@ -117,18 +120,47 @@ body {
   
   .feature-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 18px;
+    justify-items: center;
+    margin-top: 20px;
   }
   
   .feature-card {
-    border: 1px solid #8fff00;
-    padding: 24px;
-    background-color: #0b0b0b;
-    border-radius: 12px;
-    transition: all 0.2s;
+    background-color: #001100; /* Pip-Boy dark */
+    border: 1px solid #004400;
+    border-radius: 14px;
+    padding: 18px 14px;
     text-align: center;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
   }
+
+  .feature-card h3 {
+    margin-bottom: 12px;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+  }
+
+  .feature-card .feature-logo {
+  width: 36px; /* adjust size */
+  height: 36px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
+}
+
+/* mobile: stack 1 per row */
+@media (max-width: 768px) {
+  .feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    max-width: 90%;
+  }
+}
   
   .feature-card:hover {
     background-color: #8fff00;
@@ -151,4 +183,267 @@ body {
       margin: 4px 0;
     }
   }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 7px;
+    text-decoration: none;
+  }
   
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+  
+
+   /* ======================= */
+  /* I POP OUT IN THE CITY __ HERO TYPED IP QUOTE GLITCHING CRYPTIC INTERFERENCE*/
+  /* ======================= */
+  #hero-typed {
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.02em;
+    color: #8fff00; /* soft retro green */
+    text-shadow: 0 0 4px rgba(138, 255, 193, 0.3);
+  }
+  
+  /* Brief glitch characters */
+  .glitch {
+    opacity: 0.65;
+    filter: blur(0.3px);
+    animation: glitchBlink 0.15s linear infinite;
+  }
+
+  /* Matrix-style decoding phase */
+.decode {
+  color: #6dfcb1;
+  text-shadow: 0 0 6px rgba(138, 255, 193, 0.6);
+}
+  
+  @keyframes glitchBlink {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+  }
+
+  /* SPENDING BITCOINS LIKE ITS PENNIES HOE -- INFO BUTTONS */
+
+  .feature-toggles {
+    padding-top: 6px;
+    padding-bottom:6px;
+    padding-left:6px;
+    padding-right:6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+    margin: 14px 0 18px;
+  }
+  
+  .toggle-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 13.5px; /* increased from 12px */
+    color: #00FF00;
+    background-color: #001100;
+    border: 1px solid #004400;
+    border-radius: 18px; /* more rounded */
+    padding: 10px 20px 10px 16px; /* taller & wider */
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+    transition: box-shadow 0.2s, background-color 0.2s, transform 0.15s ease-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* more breathing room for icon + text */
+    position: relative;
+    user-select: none;
+  }
+  
+  .toggle-btn:hover,
+  .toggle-btn:focus {
+    background-color: #002200;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+    outline: none;
+  }
+  
+  .toggle-btn::after {
+  
+    font-size: 10px;
+    color: #00FF00;
+  }
+
+  .toggle-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
+  }
+  
+  .no-icon {
+    padding-left: 14px;
+  }
+  
+  @keyframes subtleWiggle {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-1.5px); }
+  50%  { transform: translateX(1.5px); }
+  75%  { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.toggle-btn:hover,
+.toggle-btn:focus,
+.toggle-btn:active {
+  animation: subtleWiggle 0.35s ease-in-out;
+}
+
+@media (hover: none) {
+  .toggle-btn:active {
+    animation: subtleWiggle 0.35s ease-in-out;
+  }
+}
+
+/* RE CALL TOGGLE FEATURES AFTER TO MY SECTION FIND THE EXIT - NAIL SALON! */ 
+/* --- AMBIENT SCANNER EFFECT --- */
+
+.feature-toggles {
+  position: relative;   /* allows scan lines to be absolutely positioned */
+  overflow: hidden;     /* hides beam outside button area */
+}
+
+.example-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.example-box {
+  width: 600px; /* adjust as needed */
+  max-width: 120vw;
+  padding: 20px 40px;    /* more padding on the sides */
+  border: 2px solid #00FF00; /* Pip-Boy green border */
+  border-radius: 14px;
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.2); /* subtle glow */
+  perspective: 1000px;
+}
+
+.example-img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.4s ease-out;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.3);
+  cursor: pointer;
+}
+
+.global-stats {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.global-stats h2 {
+  font-family: 'Courier New', monospace;
+  color: #00FF00;
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background-color: #001100;
+  border: 1px solid #004400;
+  border-radius: 14px;
+  padding: 18px 16px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.stat-card.stat-hits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / -1;
+  max-width: 980px;
+  padding: 18px 24px; /* give extra horizontal padding */
+}
+
+.stat-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-left {
+  text-align: left;
+}
+
+.stat-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.stat-logo {
+  width: 175px; /* adjust size to fit box proportionally */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6));
+}
+
+.stat-live {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  font-family: 'Courier New', monospace;
+  color: #00FF00;
+  gap: 8px;
+  font-size: 14px;
+  width:100%; 
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00FF00;
+  border-radius: 50%;
+  display: inline-block;
+  animation: breathe 1.5s infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+.power-logo {
+  width: 18px; /* inline with text */
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.7));
+}
+
+.live-text, .since-text {
+  display: inline-block;
+}
+

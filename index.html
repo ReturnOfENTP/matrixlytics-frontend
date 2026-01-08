@@ -15,52 +15,151 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to PipBoy Analytics</h1>
-    <p>Old-school retro interface meets modern website tracking.</p>
+    <section class="hero">
+      <h1>Welcome to PipBoy Analytics</h1>
+    
+      <!-- Feature Toggles -->
+      <div class="feature-toggles">
+        <button class="toggle-btn">
+          <img src="/assets/images/hex-uptime.png" class="toggle-icon" alt="">
+          Uptime Monitoring
+        </button>
+    
+        <button class="toggle-btn">
+          <img src="/assets/images/hex-insights.png" class="toggle-icon" alt="">
+          Automated Insights
+        </button>
+    
+        <button class="toggle-btn">
+          <img src="/assets/images/hex-kudos.png" class="toggle-icon" alt="">
+          Kudos
+        </button>
+    
+        <button class="toggle-btn">
+          <img src="/assets/images/hex-reports.png" class="toggle-icon" alt="">
+          Weekly Reports
+        </button>
+    
+        <button class="toggle-btn">
+          <img src="/assets/images/hex-content.png" class="toggle-icon" alt="">
+          Content Monitoring
+        </button>
+    
+        <button class="toggle-btn no-icon">
+          API Access & More!
+        </button>
+      </div>
+
+    
+    
+    <p id="hero-typed"></b></p>
     <div class="hero-buttons">
-      <a href="/auth/sign_up.html" class="nav-btn">Sign Up</a>
-      <a href="/auth/sign_in.html" class="nav-btn">Sign In</a>
+      <a href="/auth/sign_up.html" class="nav-btn">
+        <img src="/assets/images/signup.png" class="nav-icon">
+        Sign Up</a>
+
+
+      <a href="/auth/sign_in.html" class="nav-btn">
+        <img src="/assets/images/signin.png" class="nav-icon">
+        Sign In</a>
     </div>
-  </section>
+
+    <section class="example-display">
+      <div class="example-box">
+        <img src="/assets/images/ExampleImage.png" alt="Example App Interface" class="example-img">
+      </div>
+    </section>
+  
+
+  
 
   <!-- Features Section -->
   <section class="features">
     <h2>Key Features</h2>
     <div class="feature-cards">
-
+  
       <div class="feature-card">
         <h3>Privacy-Focused</h3>
+        <img src="/assets/images/signin.png" alt="Privacy Icon" class="feature-logo">
         <p>GDPR-compliant with no cookies or user-identifiable data storage. Securely hosted in Europe.</p>
       </div>
-
+    
       <div class="feature-card">
         <h3>Uptime, SSL & Domain Monitoring</h3>
+        <img src="/assets/images/hex-uptime.png" alt="Uptime Icon" class="feature-logo">
         <p>Get real-time alerts for downtime, SSL issues, and domain expiration with detailed notifications.</p>
       </div>
-
+    
       <div class="feature-card">
         <h3>Automated Insights</h3>
+        <img src="/assets/images/hex-insights.png" alt="Automated Insights Icon" class="feature-logo">
         <p>Receive automated analysis of traffic patterns and personalized recommendations for your site.</p>
       </div>
-
+    
       <div class="feature-card">
         <h3>Content Monitoring</h3>
+        <img src="/assets/images/hex-content.png" alt="Content Monitoring Icon" class="feature-logo">
         <p>Detect broken links or mixed content automatically and get notified before your visitors do.</p>
       </div>
-
+    
       <div class="feature-card">
         <h3>Hits & Kudos</h3>
+        <img src="/assets/images/hex-kudos.png" alt="Kudos Icon" class="feature-logo">
         <p>Add a nostalgic hit counter or modern kudos button to your pages for engagement metrics.</p>
       </div>
-
+    
       <div class="feature-card">
         <h3>Customisable Public Stats</h3>
+        <img src="/assets/images/signup.png" alt="Customizable Icon" class="feature-logo">
         <p>Showcase site metrics publicly. Toggle visibility and protect pages with a passcode.</p>
       </div>
-
+    
     </div>
+    
   </section>
+
+  <!-- Global Lifetime Statistics -->
+<section class="global-stats">
+  <h2>Global Lifetime Statistics</h2>
+
+  <div class="stats-grid">
+    <!-- Total Hits spans full width -->
+    <div class="stat-card stat-hits">
+      <div class="stat-content">
+        <div class="stat-left">
+          <h3>Total Hits</h3>
+          <p class="stat-number" id="total-hits">854</p>
+        </div>
+        <div class="stat-right">
+          <img src="/assets/images/growthmindset.png" alt="Hits Logo" class="stat-logo">
+        </div>
+      </div>
+    </div>
+
+    <!-- Second row -->
+    <div class="stat-card">
+      <h3>Total Sites Hosted</h3>
+      <p class="stat-number" id="total-sites">3</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Kudos</h3>
+      <p class="stat-number" id="total-kudos">43</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Monitored Sites</h3>
+      <p class="stat-number" id="total-monitored">8</p>
+    </div>
+
+  </div>
+
+  <div class="stat-live">
+    <span class="live-text">Live</span>
+    <span class="live-dot"></span>
+    <img src="/assets/images/powerlogo.png" alt="Power Logo" class="power-logo">
+    <span class="since-text">Since January 1, 2026</span>
+  </div>
+</section>
+
 
   <script src="js/main.js"></script>
 </body>
