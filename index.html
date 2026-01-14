@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pipboy.app</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -16,72 +16,70 @@
       <img src="/assets/images/pipboyapp.png" alt="Pipboy Logo" class="navbar-logo">
       
       <!-- Site Name -->
-      /* <span class="site-name">Pipboy.app</span> 
+      <span class="site-name">Pipboy.app</span>
     </div>
   
     <div class="navbar-right" id="navbar-right">
       <!-- nav buttons here -->
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-    <section class="hero">
-
-      <div class="welcome-container">
-        <h1 class="welcome-title">
-          <span class="line line-1">Welcome to</span>
-          <span class="line line-2">
-            <span class="logo"></span>
-            <span class="site-name">pipboy.app</span>
-          </span>
-          <span class="line line-3">Analytics</span>
-        </h1>
-      </div>
-    
-      <!-- Feature Toggles -->
-      <div class="feature-toggles">
-        <button class="toggle-btn">
-          <img src="/assets/images/hex-uptime.png" class="toggle-icon" alt="">
-          Uptime Monitoring
-        </button>
-    
-        <button class="toggle-btn">
-          <img src="/assets/images/hex-insights.png" class="toggle-icon" alt="">
-          Automated Insights
-        </button>
-    
-        <button class="toggle-btn">
-          <img src="/assets/images/hex-kudos.png" class="toggle-icon" alt="">
-          Kudos
-        </button>
-    
-        <button class="toggle-btn">
-          <img src="/assets/images/hex-reports.png" class="toggle-icon" alt="">
-          Weekly Reports
-        </button>
-    
-        <button class="toggle-btn">
-          <img src="/assets/images/hex-content.png" class="toggle-icon" alt="">
-          Content Monitoring
-        </button>
-    
-        <button class="toggle-btn no-icon">
-          API Access & More!
-        </button>
-      </div>
-    
-    <p id="hero-typed"></b></p>
-    <div class="hero-buttons">
-      <a href="auth/signup.html" class="nav-btn">
+      <a href="/auth/signup.html" class="nav-btn">
         <img src="/assets/images/signup.png" class="nav-icon">
         Sign Up
       </a>
       
-      <a href="auth/signin.html" class="nav-btn">
+      <a href="/auth/signin.html" class="nav-btn">
         <img src="/assets/images/signin.png" class="nav-icon">
         Sign In
       </a>
     </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="welcome-container">
+      <h1 class="welcome-title">
+        <span class="line line-1">Welcome to</span>
+        <span class="line line-2">
+          <span class="logo"></span>
+          <span class="site-name">pipboy.app</span>
+        </span>
+        <span class="line line-3">Analytics</span>
+      </h1>
+    </div>
+  
+    <!-- Feature Toggles -->
+    <div class="feature-toggles">
+      <button class="toggle-btn">
+        <img src="/assets/images/hex-uptime.png" class="toggle-icon" alt="">
+        Uptime Monitoring
+      </button>
+  
+      <button class="toggle-btn">
+        <img src="/assets/images/hex-insights.png" class="toggle-icon" alt="">
+        Automated Insights
+      </button>
+  
+      <button class="toggle-btn">
+        <img src="/assets/images/hex-kudos.png" class="toggle-icon" alt="">
+        Kudos
+      </button>
+  
+      <button class="toggle-btn">
+        <img src="/assets/images/hex-reports.png" class="toggle-icon" alt="">
+        Weekly Reports
+      </button>
+  
+      <button class="toggle-btn">
+        <img src="/assets/images/hex-content.png" class="toggle-icon" alt="">
+        Content Monitoring
+      </button>
+  
+      <button class="toggle-btn no-icon">
+        API Access & More!
+      </button>
+    </div>
+  
+    <p id="hero-typed"></p>
 
     <section class="example-display">
       <div class="example-box">
@@ -89,11 +87,13 @@
       </div>
     </section>
 
+  </section>
+
   <!-- Features Section -->
   <section class="features">
     <h2>Key Features</h2>
     <div class="feature-cards">
-  
+
       <div class="feature-card">
         <h3>Privacy-Focused</h3>
         <img src="/assets/images/signin.png" alt="Privacy Icon" class="feature-logo">
@@ -135,100 +135,93 @@
   </section>
 
   <!-- Global Lifetime Statistics -->
-<section class="global-stats">
-  <h2>Global Lifetime Statistics</h2>
+  <section class="global-stats">
+    <h2>Global Lifetime Statistics</h2>
 
-  <div class="stats-grid">
-    <!-- Total Hits spans full width -->
-    <div class="stat-card stat-hits">
-      <div class="stat-content">
-        <div class="stat-left">
-          <h3>Total Hits</h3>
-          <p class="stat-number" id="total-hits">854</p>
+    <div class="stats-grid">
+      <div class="stat-card stat-hits">
+        <div class="stat-content">
+          <div class="stat-left">
+            <h3>Total Hits</h3>
+            <p class="stat-number" id="total-hits">854</p>
+          </div>
+          <div class="stat-right">
+            <img src="/assets/images/growthmindset.png" alt="Hits Logo" class="stat-logo">
+          </div>
         </div>
-        <div class="stat-right">
-          <img src="/assets/images/growthmindset.png" alt="Hits Logo" class="stat-logo">
-        </div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Sites Hosted</h3>
+        <p class="stat-number" id="total-sites">3</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Kudos</h3>
+        <p class="stat-number" id="total-kudos">43</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Monitored Sites</h3>
+        <p class="stat-number" id="total-monitored">8</p>
       </div>
     </div>
 
-    <!-- Second row -->
-    <div class="stat-card">
-      <h3>Total Sites Hosted</h3>
-      <p class="stat-number" id="total-sites">3</p>
-    </div>
-    <div class="stat-card">
-      <h3>Total Kudos</h3>
-      <p class="stat-number" id="total-kudos">43</p>
-    </div>
-    <div class="stat-card">
-      <h3>Total Monitored Sites</h3>
-      <p class="stat-number" id="total-monitored">8</p>
-    </div>
-
-  </div>
-
-  <div class="stat-live">
+    <div class="stat-live">
       <span class="live-text">Live</span>
       <span class="live-dot"></span>
       <img src="/assets/images/powerlogo.png" alt="Power Logo" class="power-logo">
       <span class="since-text">Since January 1, 2026</span>
     </div>
-</section>
+  </section>
 
+  <!-- ======================= -->
+  <!-- PIPBOY PRICING TABS -->
+  <!-- ======================= -->
+  <section class="pricing-terminal pipboy-pricing">
+    <div class="terminal-frame">
+      <div class="terminal-header">
+        <span class="terminal-title"> START YOUR FREE TRIAL...  </span>
+      </div>
 
-<!-- ======================= -->
-<!-- PIPBOY PRICING TABS -->
-<!-- ======================= -->
-<section class="pricing-terminal pipboy-pricing">
-  <div class="terminal-frame">
-    <div class="terminal-header">
-      <span class="terminal-title"> START YOUR FREE TRIAL...  </span>
-    </div>
+      <div class="billing-toggle">
+        <span class="toggle-label">MONTHLY</span>
+        <button id="billingSwitch" class="toggle-switch" aria-label="Toggle billing"></button>
+        <span class="toggle-label">YEARLY</span>
+      </div>
 
-    <div class="billing-toggle">
-      <span class="toggle-label">MONTHLY</span>
-      <button id="billingSwitch" class="toggle-switch" aria-label="Toggle billing"></button>
-      <span class="toggle-label">YEARLY</span>
-    </div>
+      <div class="terminal-tabs plan-tabs" role="tablist" aria-label="Subscription Plans">
+        <button class="tab active" role="tab" aria-selected="true" data-plan="blogger">
+          [ BLOGGER ]
+        </button>
+        <button class="tab" role="tab" aria-selected="false" data-plan="business">
+          [ BUSINESS ]
+        </button>
+        <button class="tab" role="tab" aria-selected="false" data-plan="enterprise">
+          [ ENTERPRISE ]
+        </button>
+      </div>
 
-    <!-- ASCII TABS -->
-    <div class="terminal-tabs plan-tabs" role="tablist" aria-label="Subscription Plans">
-      <button class="tab active" role="tab" aria-selected="true" data-plan="blogger">
-        [ BLOGGER ]
-      </button>
-      <button class="tab" role="tab" aria-selected="false" data-plan="business">
-        [ BUSINESS ]
-      </button>
-      <button class="tab" role="tab" aria-selected="false" data-plan="enterprise">
-        [ ENTERPRISE ]
-      </button>
-    </div>
-
-    <!-- TERMINAL BODY -->
-    <div class="terminal-body">
-      <div class="terminal-content">
-        <pre id="planOutput" class="terminal-output pipboy-output">
+      <div class="terminal-body">
+        <div class="terminal-content">
+          <pre id="planOutput" class="terminal-output pipboy-output">
 > Initializing Pricing Module...
 > Select a plan above.</pre>
 
-<div class="terminal-image">
-  <img id="planImage" src="/assets/images/pricing.png" alt="Plan Module" />
-</div>
-</div>
-</div>
-
-    <!-- TRIAL CTA -->
-    <div class="terminal-cta">
-      <div class="cta-text">
-<br> 
-        >  Start Your 7-day Free Trial 
+          <div class="terminal-image">
+            <img id="planImage" src="/assets/images/pricing.png" alt="Plan Module" />
+          </div>
+        </div>
       </div>
-      <button id="trialButton" class="cta-button">[ PAY NOW ]</button>
-    </div>
-  </div>
-</section>
 
-  <script src="js/main.js"></script>
+      <div class="terminal-cta">
+        <div class="cta-text">
+<br> 
+          >  Start Your 7-day Free Trial 
+        </div>
+        <button id="trialButton" class="cta-button">[ PAY NOW ]</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
