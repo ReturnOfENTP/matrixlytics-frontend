@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pipboy – Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/webfront/auth/auth.css" />
+  <style>
+    /* === ASCII BACKGROUND === */
+    #ascii-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;      /* clicks pass through */
+      z-index: 0;                /* behind everything */
+      font-family: monospace;
+      white-space: pre;
+      line-height: 1;
+      color: #00ff88;
+      opacity: .13;
+      overflow: hidden;
+      background: black;         /* optional black behind ASCII */
+    }
+
+    /* Optional CRT overlay */
+    #crt-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: rgba(0,0,0,0.05);
+      mix-blend-mode: overlay;
+    }
+
+    /* Ensure the form and boxes stay above ASCII */
+    .app.auth-app, .auth-wrapper, .auth-box {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ASCII Slime Background -->
+  <pre id="ascii-canvas" aria-hidden="true"></pre>
+
+  <!-- CRT Overlay -->
+  <div id="crt-overlay"></div>
+
+  <!-- Foreground Form -->
+  <main class="app auth-app">
+    <section class="auth-wrapper">
+      <div class="auth-box">
+        <div class="auth-logo">
+            <img src="/assets/images/signup.png" alt="Pipboy Logo">
+          </div>
+        <form id="signup-form" action="/auth/sign_up" method="post">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="enter@your-email..." required />
+          </div>
+          <div class="form-group password-container">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="don't tell anyone..." required />
+            <div class="form-row" style="font-size:0.7rem; color:var(--muted);">
+              (6 characters minimum)
+            </div>
+          </div>
+          <p style="font-size:0.7rem; color:var(--muted); margin-top:10px;">
+            By signing up, you agree to our terms and privacy policy. Temporary or spam emails are blocked.
+          </p>
+          <button type="submit" class="form-btn">Sign up</button>
+        </form>
+      </div>
+
+      <div class="auth-box secondary">
+        <div class="auth-links">
+          <a href="/auth/sign_in">Already have an account? Sign in</a>
+          <a href="/auth/confirmation/new">Didn't receive confirmation instructions?</a>
+          <a href="mailto:help@pipboy.app">Need help? Email help@pipboy.app</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/webfront/assets/ascii-slime.js"></script>
+  <script src="/webfront/auth/auth.js"></script>
+</body>
+</html>

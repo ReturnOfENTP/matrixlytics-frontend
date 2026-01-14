@@ -10,13 +10,35 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-left" id="navbar-left"></div>
-    <div class="navbar-right" id="navbar-right"></div>
+
+    <div class="navbar-left" id="navbar-left">
+      <!-- Logo -->
+      <img src="/assets/images/pipboyapp.png" alt="Pipboy Logo" class="navbar-logo">
+      
+      <!-- Site Name -->
+      /* <span class="site-name">Pipboy.app</span> 
+    </div>
+  
+    <div class="navbar-right" id="navbar-right">
+      <!-- nav buttons here -->
+    </div>
   </nav>
+  
+  
 
   <!-- Hero Section -->
     <section class="hero">
-      <h1>Welcome to PipBoy Analytics</h1>
+
+      <div class="welcome-container">
+        <h1 class="welcome-title">
+          <span class="line line-1">Welcome to</span>
+          <span class="line line-2">
+            <span class="logo"></span>
+            <span class="site-name">pipboy.app</span>
+          </span>
+          <span class="line line-3">Analytics</span>
+        </h1>
+      </div>
     
       <!-- Feature Toggles -->
       <div class="feature-toggles">
@@ -54,12 +76,12 @@
     
     <p id="hero-typed"></b></p>
     <div class="hero-buttons">
-      <a href="/auth/sign_up.html" class="nav-btn">
+      <a href="/webfront/auth/signup.html" class="nav-btn">
         <img src="/assets/images/signup.png" class="nav-icon">
         Sign Up</a>
 
 
-      <a href="/auth/sign_in.html" class="nav-btn">
+      <a href="/webfront/auth/signin.html" class="nav-btn">
         <img src="/assets/images/signin.png" class="nav-icon">
         Sign In</a>
     </div>
@@ -153,12 +175,76 @@
   </div>
 
   <div class="stat-live">
-    <span class="live-text">Live</span>
-    <span class="live-dot"></span>
-    <img src="/assets/images/powerlogo.png" alt="Power Logo" class="power-logo">
-    <span class="since-text">Since January 1, 2026</span>
+      <span class="live-text">Live</span>
+      <span class="live-dot"></span>
+      <img src="/assets/images/powerlogo.png" alt="Power Logo" class="power-logo">
+      <span class="since-text">Since January 1, 2026</span>
+    </div>
+</section>
+
+
+<!-- ======================= -->
+<!-- PIPBOY PRICING TABS -->
+<!-- ======================= -->
+<section class="pricing-terminal pipboy-pricing">
+  <div class="terminal-frame">
+    <div class="terminal-header">
+      <span class="terminal-title"> START YOUR FREE TRIAL...  </span>
+    </div>
+
+    <div class="billing-toggle">
+      <span class="toggle-label">MONTHLY</span>
+      <button id="billingSwitch" class="toggle-switch" aria-label="Toggle billing"></button>
+      <span class="toggle-label">YEARLY</span>
+    </div>
+
+    <!-- ASCII TABS -->
+    <div class="terminal-tabs plan-tabs" role="tablist" aria-label="Subscription Plans">
+      <button class="tab active" role="tab" aria-selected="true" data-plan="blogger">
+        [ BLOGGER ]
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-plan="business">
+        [ BUSINESS ]
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-plan="enterprise">
+        [ ENTERPRISE ]
+      </button>
+    </div>
+
+    <!-- TERMINAL BODY -->
+    <div class="terminal-body">
+      <div class="terminal-content">
+        <pre id="planOutput" class="terminal-output pipboy-output">
+> Initializing Pricing Module...
+> Select a plan above.</pre>
+
+<div class="terminal-image">
+  <img id="planImage" src="/assets/images/pricing.png" alt="Plan Module" />
+</div>
+</div>
+</div>
+
+    <!-- TRIAL CTA -->
+    <div class="terminal-cta">
+      <div class="cta-text">
+<br> 
+        >  Start Your 7-day Free Trial 
+      </div>
+      <button id="trialButton" class="cta-button">[ PAY NOW ]</button>
+    </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <script src="js/main.js"></script>

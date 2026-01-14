@@ -6,363 +6,314 @@ body {
   font-family: 'Courier New', monospace;
   background-color: #0b0b0b;
   color: #8fff00;
-
-  padding-top: 0px; /* same as navbar height */
+  padding-top: 0; /* same as navbar height */
 }
-  
-  /* ======================= */
-  /* NAVBAR */
-  /* ======================= */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;        /* keep spacing */
-    height: 60px;
-    max-width: 100vw;           /* do not exceed viewport width */
-    width: 100%;                /* fill available space */
-    background-color: #0b0b0b;
-    border-bottom: 2px solid #8fff00;
-    box-sizing: border-box;     /* include padding in width */
-    overflow-x: hidden;         /* prevent horizontal scroll */
-    transition: transform 0.3s ease;
+
+/* ======================= */
+/* NAVBAR */
+/* ======================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  height: 60px;
+  width: 100%;
+  max-width: 100vw;
+  background-color: #0b0b0b;
+  border-bottom: 2px solid #8fff00;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: transform 0.3s ease;
 }
 
 .navbar-left,
 .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;          /* wrap buttons to next line if needed */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
-  
-  .logo {
-    width: 45px;
-    height: 45px;
-    border: 0px solid #8fff00;
-    display: flex;
-    background-image: url('/assets/images/pipboyapp.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .site-name, .page-label {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #8fff00;
-  }
-  
-  .page-label.active {
-    border-bottom: 2px solid #8fff00;
-  }
-  
-  .nav-btn {
-    color: #8fff00;
-    border: 0px solid #8fff00;
-    padding: 6px 12px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
-    transition: all 0.2s;
-    background-color: transparent;
-  }
-  
-  .nav-btn:hover {
-    background-color: #8fff00;
-    color: #0b0b0b;
-  }
-  
-  .user-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 2px solid #8fff00;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  /* ======================= */
-  /* HERO SECTION */
-  /* ======================= */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 500px);
-    text-align: center;
-    padding: 60px 24px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 12px;
-  }
-  
-  .hero p {
-    font-size: 1.25rem;
-    margin-bottom: 24px;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-  }
-  
-  /* ======================= */
-  /* FEATURES / PRICING TEASER */
-  /* ======================= */
-  .features {
-    text-align: center;
-    padding: 40px 24px;
-  }
-  
-  .feature-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 18px;
-    justify-items: center;
-    margin-top: 20px;
-  }
-  
-  .feature-card {
-    background-color: #001100; /* Pip-Boy dark */
-    border: 1px solid #004400;
-    border-radius: 14px;
-    padding: 18px 14px;
-    text-align: center;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-  }
 
-  .feature-card h3 {
-    margin-bottom: 12px;
-    color: #00FF00;
-    font-family: 'Courier New', monospace;
-  }
+.site-name,
+.page-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8fff00;
+}
 
-  .feature-card .feature-logo {
-  width: 36px; /* adjust size */
+.page-label.active {
+  border-bottom: 2px solid #8fff00;
+}
+
+.nav-btn {
+  color: #8fff00;
+  border: 0;
+  padding: 4px 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  transition: all 0.2s;
+  background-color: transparent;
+  gap: 2px;
+}
+
+.nav-btn:hover {
+  background-color: #8fff00;
+  color: #0b0b0b;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.user-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #8fff00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Navbar logo */
+.navbar-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  margin-right: 10px;
+  display: inline-block; /* visible by default */
+}
+
+/* Hide logo on small screens */
+@media (max-width: 599px) {
+  .navbar-logo {
+    display: none;
+  }
+}
+
+/* Navbar left container */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ======================= */
+/* HERO SECTION */
+/* ======================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 500px);
+  text-align: center;
+  padding: 0 9px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 2px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* ======================= */
+/* WELCOME SECTION */
+/* ======================= */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.welcome-title {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #8fff00;
+  display: inline-block;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0;
+  gap: 2px;
+}
+
+/* Logo & pipboy.app on second line */
+.line-2 .logo {
+  width: 40px;
+  height: 40px;
+  background-image: url('/assets/images/pipboyapp.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.line-2 .site-name {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+/* Desktop scaling */
+@media (min-width: 600px) {
+  .welcome-container {
+    margin: 13px 0;
+  }
+  .line-1 { font-size: 5.5rem; }
+  .line-2 .site-name { font-size: 5.5rem; }
+  .line-2 .logo { width: 60px; height: 60px; }
+  .line-3 { font-size: 4.5rem; }
+}
+
+/* Mobile spacing adjustments */
+@media (max-width: 768px) {
+  .navbar-left .logo { display: none; }
+  .welcome-container { margin: .5px; }
+  .line-1 { font-size: 2.4rem; }
+  .line-2 .site-name { font-size: 2.6rem; }
+  .line-2 .logo { width: 32px; height: 32px; }
+  .line-3 { font-size: 2.2rem; }
+}
+
+/* ======================= */
+/* FEATURES / TOGGLES */
+/* ======================= */
+.features {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.feature-card {
+  background-color: #001100;
+  border: 1px solid #004400;
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.feature-card h3 {
+  margin-bottom: 12px;
+  color: #00FF00;
+}
+
+.feature-card .feature-logo {
+  width: 36px;
   height: 36px;
   object-fit: contain;
   margin-bottom: 12px;
   filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
 }
 
-/* mobile: stack 1 per row */
-@media (max-width: 768px) {
-  .feature-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-card {
-    max-width: 90%;
-  }
+.feature-card:hover {
+  background-color: #8fff00;
+  color: #0b0b0b;
 }
-  
-  .feature-card:hover {
-    background-color: #8fff00;
-    color: #0b0b0b;
-  }
-  
-  /* ======================= */
-  /* RESPONSIVE */
-  /* ======================= */
-  @media screen and (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      height: auto;
-      padding: 12px;
-    }
-  
-    .navbar-left,
-    .navbar-right {
-      gap: 12px;
-      margin: 4px 0;
-    }
-  }
 
-  .nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 7px;
-    text-decoration: none;
-  }
-  
-  .nav-icon {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-  }
-  
-
-   /* ======================= */
-  /* I POP OUT IN THE CITY __ HERO TYPED IP QUOTE GLITCHING CRYPTIC INTERFERENCE*/
-  /* ======================= */
-  #hero-typed {
-    font-family: "Courier New", monospace;
-    letter-spacing: 0.02em;
-    color: #8fff00; /* soft retro green */
-    text-shadow: 0 0 4px rgba(138, 255, 193, 0.3);
-  }
-  
-  /* Brief glitch characters */
-  .glitch {
-    opacity: 0.65;
-    filter: blur(0.3px);
-    animation: glitchBlink 0.15s linear infinite;
-  }
-
-  /* Matrix-style decoding phase */
-.decode {
-  color: #6dfcb1;
-  text-shadow: 0 0 6px rgba(138, 255, 193, 0.6);
+.feature-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  padding: 6px;
+  margin: 18px 0 -1px;
+  position: relative;
+  overflow: hidden;
 }
-  
-  @keyframes glitchBlink {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0.4; }
-  }
 
-  /* SPENDING BITCOINS LIKE ITS PENNIES HOE -- INFO BUTTONS */
-
-  .feature-toggles {
-    padding-top: 6px;
-    padding-bottom:6px;
-    padding-left:6px;
-    padding-right:6px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 14px;
-    margin: 14px 0 18px;
-  }
-  
-  .toggle-btn {
-    font-family: 'Courier New', monospace;
-    font-size: 13.5px; /* increased from 12px */
-    color: #00FF00;
-    background-color: #001100;
-    border: 1px solid #004400;
-    border-radius: 18px; /* more rounded */
-    padding: 10px 20px 10px 16px; /* taller & wider */
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    cursor: pointer;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-    transition: box-shadow 0.2s, background-color 0.2s, transform 0.15s ease-out;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* more breathing room for icon + text */
-    position: relative;
-    user-select: none;
-  }
-  
-  .toggle-btn:hover,
-  .toggle-btn:focus {
-    background-color: #002200;
-    box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
-    outline: none;
-  }
-  
-  .toggle-btn::after {
-  
-    font-size: 10px;
-    color: #00FF00;
-  }
-
-  .toggle-icon {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
-  }
-  
-  .no-icon {
-    padding-left: 14px;
-  }
-  
-  @keyframes subtleWiggle {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-1.5px); }
-  50%  { transform: translateX(1.5px); }
-  75%  { transform: translateX(-1px); }
-  100% { transform: translateX(0); }
+.toggle-btn {
+  font-family: 'Courier New', monospace;
+  font-size: 13.5px;
+  color: #00FF00;
+  background-color: #001100;
+  border: 1px solid #004400;
+  border-radius: 18px;
+  padding: 10px 20px 10px 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  transition: box-shadow 0.2s, background-color 0.2s, transform 0.15s ease-out;
+  user-select: none;
 }
 
 .toggle-btn:hover,
 .toggle-btn:focus,
 .toggle-btn:active {
   animation: subtleWiggle 0.35s ease-in-out;
+  background-color: #002200;
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
 }
 
-@media (hover: none) {
-  .toggle-btn:active {
-    animation: subtleWiggle 0.35s ease-in-out;
-  }
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
 }
 
-/* RE CALL TOGGLE FEATURES AFTER TO MY SECTION FIND THE EXIT - NAIL SALON! */ 
-/* --- AMBIENT SCANNER EFFECT --- */
+.no-icon { padding-left: 14px; }
 
-.feature-toggles {
-  position: relative;   /* allows scan lines to be absolutely positioned */
-  overflow: hidden;     /* hides beam outside button area */
+@keyframes subtleWiggle {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-1.5px); }
+  50% { transform: translateX(1.5px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
 }
 
+/* ======================= */
+/* EXAMPLE DISPLAY / HERO IMAGE */
+/* ======================= */
 .example-display {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-/* Desktop view */
-#example-container {
-  width: 600px;           /* or whatever your normal container width */
-  padding: 20px;
-  border: 3px solid #000; /* visible border on desktop */
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
-#example-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Mobile view */
-@media (max-width: 700px) {
-  #example-container {
-      border: none;       /* remove the border */
-      width: 75%;         /* shrink container by ~25% */
-      padding: 10px;      /* optional: maintain small inner gap */
-      margin: 0 auto;
-  }
-
-  #example-container img {
-      width: 100%;        /* continue scaling with container */
-      height: auto;
-  }
-}
-
-
 .example-box {
-  width: 685px; /* adjust as needed */
+  width: 685px;
   max-width: 120vw;
-  padding: 20px 40px;    /* more padding on the sides */
-  border: 2px solid #00FF00; /* Pip-Boy green border */
+  padding: 20px 40px;
+  border: 2px solid #00FF00;
   border-radius: 14px;
-  box-shadow: 0 0 16px rgba(0, 255, 0, 0.2); /* subtle glow */
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.2);
   perspective: 1000px;
 }
 
@@ -375,24 +326,20 @@ body {
   cursor: pointer;
 }
 
-/* Mobile view */
 @media (max-width: 700px) {
   .example-box {
-      width: 85%;            /* shrink container by ~25% */
-      padding: 10px;         /* keep a small gap */
-      border: none;          /* remove border on mobile */
-      margin: 0 auto;        /* stay centered */
-  }
-
-  .example-img {
-      width: 100%;           /* continue scaling with container */
-      height: auto;
+    width: 85%;
+    padding: 10px;
+    border: none;
+    margin: 0 auto;
   }
 }
 
-
+/* ======================= */
+/* GLOBAL STATS */
+/* ======================= */
 .global-stats {
-  margin: 40px 0;
+  margin: 30px 0;
   text-align: center;
 }
 
@@ -404,9 +351,9 @@ body {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 10px 45px;
   justify-items: center;
-  width: 100%;
+  width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -434,28 +381,21 @@ body {
   align-items: center;
   grid-column: 1 / -1;
   max-width: 980px;
-  padding: 18px 24px; /* give extra horizontal padding */
+  padding: 18px 24px;
 }
 
 .stat-content {
   display: flex;
-  width: 100%;
+  width: 99%;
   justify-content: space-between;
   align-items: center;
 }
 
-.stat-left {
-  text-align: left;
-}
-
-.stat-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+.stat-left { text-align: left; padding-left: 20px;}
+.stat-right { display: flex; justify-content: flex-end; align-items: center; }
 
 .stat-logo {
-  width: 175px; /* adjust size to fit box proportionally */
+  width: 175px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6));
@@ -470,7 +410,7 @@ body {
   color: #00FF00;
   gap: 8px;
   font-size: 14px;
-  width:100%; 
+  width: 100%;
 }
 
 .live-dot {
@@ -488,13 +428,399 @@ body {
 }
 
 .power-logo {
-  width: 18px; /* inline with text */
+  width: 18px;
   height: 18px;
   object-fit: contain;
   filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.7));
 }
 
-.live-text, .since-text {
-  display: inline-block;
+.live-text, .since-text { display: inline-block; }
+
+/* ======================= */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; height: auto; padding: 0px; }
+  .navbar-left, .navbar-right { gap: 7.5px; margin: 4px 0; }
+  .feature-cards { grid-template-columns: 1fr; }
+  .feature-card { max-width: 90%; }
 }
 
+/* ======================= */
+/* HERO TYPED QUOTE */
+#hero-typed {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.02em;
+  min-height: 4em;            /* reserve space for 2–3 lines of text */
+  overflow: hidden; 
+  color: #8fff00;
+  text-shadow: 0 0 4px rgba(138, 255, 193, 0.3);
+}
+
+.glitch { opacity: 0.65; filter: blur(0.3px); animation: glitchBlink 0.15s linear infinite; }
+.decode { color: #6dfcb1; text-shadow: 0 0 6px rgba(138, 255, 193, 0.6); }
+
+@keyframes glitchBlink { 0% { opacity: 0.3; } 50% { opacity: 0.8; } 100% { opacity: 0.4; } }
+
+/* ======================= */
+/* GLOBAL STATS SMALL SCREENS ≤390px */
+/* ======================= */
+@media (max-width: 500px) {
+  /* Top wide "hits" card */
+  .stat-card.stat-hits {
+    max-width: 305px;
+    padding: 2px 6px;
+  }
+
+  .stat-logo {
+    width: 70px;           /* smaller logo */
+  }
+
+  .stat-live {
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .live-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .power-logo {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Bottom three cards - tighter, overlap a little */
+  .stat-card:not(.stat-hits) {
+    max-width: 80px;      /* smaller width */
+    padding: 1px 10px;      /* less padding to reduce height */
+    min-height: 70px;      /* shorter height */
+    font-size: 0.65rem;    /* smaller text */
+    box-shadow: 0 0 4px rgba(0, 255, 0, 0.2); /* lighter shadow */
+    margin-left: 0px;    /* slight horizontal overlap */
+    transition: transform 0.2s;
+  }
+
+  .stat-card:not(.stat-hits):hover {
+    transform: translateY(-2px); /* keep hover lift subtle */
+  }
+
+  .stats-grid {
+    gap: 4px;               /* tighter horizontal spacing */
+    grid-template-columns: repeat(3, 1fr); /* horizontal layout maintained */
+    justify-items: center;
+  }
+
+  /* Optional: numbers and labels inside bottom cards */
+  .stat-card:not(.stat-hits) .stat-number {
+    font-size: 0.9rem;
+  }
+
+  .stat-card:not(.stat-hits) .stat-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* --------------------- */
+/* PIPEBOY PRICING STYLES */
+/* --------------------- */
+/* =============================
+   Terminal Pricing Section
+============================= */
+/* =============================
+   PIPBOY PRICING TERMINAL
+============================= */
+.pipboy-pricing {
+  max-width: 960px;           /* 60px wider than original 900px */
+  margin: 40px auto;          /* center horizontally with top/bottom margin */
+  padding: 0px 0px;         /* generous padding inside */
+  background-color: #051302;  /* dark terminal color */
+  
+  border-radius: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: #7CFC00;
+  box-sizing: border-box;
+}
+
+/* Terminal Header */
+.terminal-header {
+  border-bottom: 1px solid #008800;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Billing toggle */
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.toggle-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.toggle-switch {
+  width: 50px;
+  height: 24px;
+  background-color: #0b0c0f;
+  border: 2px solid #008800;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 1px;
+  left: 1px;
+  background-color: #00ff4c;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch.yearly::after {
+  transform: translateX(26px);
+}
+
+/* ASCII Tabs */
+.terminal-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.terminal-tabs .tab {
+  background-color: #0b0c0f;
+  border: 1px solid #008800;
+  padding: 10px 20px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #008800;
+  border-radius: 4px;
+}
+
+.terminal-tabs .tab.active {
+  background-color: #00ff4c;
+  color: #0b0c0f;
+}
+
+.terminal-tabs .tab:hover:not(.active) {
+  background-color: #003300;
+  color: #00ff4c;
+}
+
+/* Terminal body */
+.terminal-body {
+  display: flex;
+  flex-direction: row;
+  gap: 25px; /* wider gap between text and image */
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.terminal-content {
+  flex: 1;
+}
+
+.terminal-output {
+  background-color: #001500;
+  border: 1px solid #00ff4c;
+  padding: 16px;
+  min-height: 240px;
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+/* Plan image */
+.terminal-image img {
+  max-width: 220px;
+  border: 0px solid #00ff4c;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* CTA button */
+.cta-button {
+  background-color: #0b0c0f;
+  border: 2px solid #00ff4c;
+  padding: 10px 18px;
+  color: #00ff4c;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  margin: 15px auto 0 auto; /* center button */
+}
+
+.cta-button:hover {
+  background-color: #003300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+  .terminal-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .terminal-image img {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .terminal-output {
+    min-height: 200px;
+    font-size: 15px;
+  }
+
+  .terminal-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .toggle-switch {
+    width: 40px;
+    height: 20px;
+  }
+
+  .toggle-switch::after {
+    width: 16px;
+    height: 16px;
+    transform: translateX(20px);
+  }
+}
+
+/* =============================
+   Responsive / Mobile Adjustments
+============================= */
+@media (max-width: 850px) {
+
+  /* Terminal box scales down slightly but stays readable */
+  .pipboy-pricing {
+    max-width: 90%;         /* fits smaller screens */
+   
+  }
+
+  /* Terminal body stacks text + image vertically */
+  .terminal-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;              /* space between text and image */
+  }
+
+  /* Output box for subscriptions */
+  .terminal-output {
+    min-height: 180px;      /* fixed size to prevent shrinking */
+    width: 100%;            /* fills the container */
+    font-size: 15px;        /* slightly smaller font for mobile */
+    padding: 14px;
+    overflow-y: auto;       /* scroll if text exceeds box */
+  }
+
+  /* Image resizes but stays readable */
+  .terminal-image img {
+    max-width: 80%;         /* scale down slightly */
+    margin-top: 12px;
+  }
+
+  /* Tabs wrap and stay clickable */
+  .terminal-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .terminal-tabs .tab {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /* Billing toggle stays usable on mobile */
+  .billing-toggle {
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .toggle-switch {
+    width: 40px;
+    height: 20px;
+  }
+
+  .toggle-switch::after {
+    width: 16px;
+    height: 16px;
+    transform: translateX(20px);
+  }
+
+  /* CTA button adjusts size */
+  .cta-button {
+    padding: 8px 14px;
+    font-size: 14px;
+    margin: 12px auto 0 auto;
+  }
+}
+
+/* ============================= */
+/* PIPBOY Pricing Terminal Glow */
+/* ============================= */
+
+.terminal-frame {
+  position: relative;
+  background-color: #000; /* Black inside */
+  border: 2px solid #008800; /* initial green border */
+  padding: 20px;
+  width: 100%;
+  max-width: 900px; /* slightly bigger */
+  margin: 0 auto;
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  /* Glow animation */
+  box-shadow: 0 0 15px #008800, 0 0 30px #008800, 0 0 45px #008800;
+  animation: borderGlow 6s linear infinite, borderColorCycle 6s linear infinite;
+}
+
+/* Breathing glow animation */
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px #008800, 0 0 30px #008800, 0 0 45px #008800;
+  }
+  50% {
+    box-shadow: 0 0 25px #00ff00, 0 0 50px #ffff00, 0 0 75px #ff8800;
+  }
+}
+
+/* Circular color cycling on border */
+@keyframes borderColorCycle {
+  0%   { border-color: #008800; }
+  25%  { border-color: #ffff00; } /* yellow */
+  50%  { border-color: #ff8800; } /* orange */
+  75%  { border-color: #ffff00; } /* back to yellow */
+  100% { border-color: #008800; } /* back to green */
+}
+
+/* Optional: glowing effect on hover to intensify */
+.terminal-frame:hover {
+  box-shadow: 0 0 25px #00ff00, 0 0 50px #ffff00, 0 0 75px #ff8800;
+}
