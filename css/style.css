@@ -9,6 +9,8 @@ body {
   padding-top: 0; /* same as navbar height */
 }
 
+
+
 /* ======================= */
 /* NAVBAR */
 /* ======================= */
@@ -125,7 +127,7 @@ body {
 
 .hero p {
   font-size: 1.25rem;
-  margin-bottom: 24px;
+  
 }
 
 .hero-buttons {
@@ -154,8 +156,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px 0;
-  gap: 2px;
 }
 
 /* Logo & pipboy.app on second line */
@@ -178,7 +178,7 @@ body {
 /* Desktop scaling */
 @media (min-width: 600px) {
   .welcome-container {
-    margin: 13px 0;
+    margin: 12px 0;
   }
   .line-1 { font-size: 5.5rem; }
   .line-2 .site-name { font-size: 5.5rem; }
@@ -195,6 +195,8 @@ body {
   .line-2 .logo { width: 32px; height: 32px; }
   .line-3 { font-size: 2.2rem; }
 }
+
+
 
 /* ======================= */
 /* FEATURES / TOGGLES */
@@ -213,7 +215,7 @@ body {
 }
 
 .feature-card {
-  background-color: #001100;
+  background-color: #0f120f;
   border: 1px solid #004400;
   border-radius: 14px;
   padding: 18px 14px;
@@ -247,11 +249,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px 14px;
-  padding: 6px;
-  margin: 18px 0 -1px;
+  padding: 9px;
   position: relative;
   overflow: hidden;
 }
+
 
 .toggle-btn {
   font-family: 'Courier New', monospace;
@@ -271,16 +273,19 @@ body {
   position: relative;
   transition: box-shadow 0.2s, background-color 0.2s, transform 0.15s ease-out;
   user-select: none;
+  
 }
 
 .toggle-btn:hover,
 .toggle-btn:focus,
 .toggle-btn:active {
-  animation: subtleWiggle 0.35s ease-in-out;
+  animation:
+    subtleWiggle 0.35s ease-in-out,
+    pipboy-select 2.5s linear forwards;
+
   background-color: #002200;
   box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
 }
-
 .toggle-icon {
   width: 20px;
   height: 20px;
@@ -297,6 +302,8 @@ body {
   75% { transform: translateX(-1px); }
   100% { transform: translateX(0); }
 }
+
+
 
 /* ======================= */
 /* EXAMPLE DISPLAY / HERO IMAGE */
@@ -447,14 +454,41 @@ body {
 
 /* ======================= */
 /* HERO TYPED QUOTE */
+/* Base desktop */
 #hero-typed {
   font-family: "Courier New", monospace;
   letter-spacing: 0.02em;
-  min-height: 4em;            /* reserve space for 2–3 lines of text */
+  min-height: 4em;        /* default for large screens */
   overflow: hidden; 
   color: #8fff00;
   text-shadow: 0 0 4px rgba(138, 255, 193, 0.3);
+  padding-left: 50px;
+  padding-right: 50px;
 }
+
+/* Small tablets / large phones: 515px - 760px */
+@media (max-width: 760px) and (min-width: 515px) {
+  #hero-typed {
+    min-height: 8em;       /* enough space for long text */
+  }
+}
+
+/* Phones / smaller devices: 375px - 514px */
+@media (max-width: 514px) and (min-width: 375px) {
+  #hero-typed {
+    min-height: 10em;      /* dedicate extra space */
+  }
+}
+
+/* Tiny phones: <375px */
+@media (max-width: 374px) {
+  #hero-typed {
+    min-height: 9em;      /* same as above, but adjust padding */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 
 .glitch { opacity: 0.65; filter: blur(0.3px); animation: glitchBlink 0.15s linear infinite; }
 .decode { color: #6dfcb1; text-shadow: 0 0 6px rgba(138, 255, 193, 0.6); }
@@ -470,6 +504,22 @@ body {
     max-width: 305px;
     padding: 2px 6px;
   }
+
+  @media (max-width: 400px) {
+    #hero-typed {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .container {
+      margin-left: 6rem;
+      margin-right: 6rem;
+    }
+  }
+
+
 
   .stat-logo {
     width: 70px;           /* smaller logo */
@@ -584,7 +634,7 @@ body {
   height: 20px;
   top: 1px;
   left: 1px;
-  background-color: #00ff4c;
+  background-color: #00884c;
   border-radius: 50%;
   transition: all 0.2s ease;
 }
@@ -614,18 +664,18 @@ body {
 }
 
 .terminal-tabs .tab.active {
-  background-color: #00ff4c;
+  background-color: #008800;
   color: #0b0c0f;
 }
 
 .terminal-tabs .tab:hover:not(.active) {
-  background-color: #003300;
+  background-color: #014101;
   color: #00ff4c;
 }
 
 /* Terminal body */
 .terminal-body {
-  display: flex;
+  
   flex-direction: row;
   gap: 25px; /* wider gap between text and image */
   align-items: flex-start;
@@ -645,6 +695,7 @@ body {
   line-height: 1.4;
   white-space: pre-wrap;
   box-sizing: border-box;
+  text-align: left;
 }
 
 /* Plan image */
@@ -658,9 +709,9 @@ body {
 /* CTA button */
 .cta-button {
   background-color: #0b0c0f;
-  border: 2px solid #00ff4c;
+  border: 2px solid #00ff00;
   padding: 10px 18px;
-  color: #00ff4c;
+  color: #00ff00;
   font-family: "Courier New", monospace;
   font-weight: bold;
   border-radius: 4px;
@@ -708,6 +759,8 @@ body {
   }
 }
 
+
+
 /* =============================
    Responsive / Mobile Adjustments
 ============================= */
@@ -715,7 +768,7 @@ body {
 
   /* Terminal box scales down slightly but stays readable */
   .pipboy-pricing {
-    max-width: 90%;         /* fits smaller screens */
+    max-width: 91%;         /* fits smaller screens */
    
   }
 
@@ -732,7 +785,8 @@ body {
     width: 100%;            /* fills the container */
     font-size: 15px;        /* slightly smaller font for mobile */
     padding: 14px;
-    overflow-y: auto;       /* scroll if text exceeds box */
+    overflow-y: auto;   
+    text-align: left;    /* scroll if text exceeds box */
   }
 
   /* Image resizes but stays readable */
@@ -761,16 +815,16 @@ body {
     margin-bottom: 16px;
   }
 
-  .toggle-switch {
-    width: 40px;
-    height: 20px;
-  }
-
-  .toggle-switch::after {
-    width: 16px;
-    height: 16px;
-    transform: translateX(20px);
-  }
+/* Default toggle */
+.toggle-switch {
+  width: 50px;
+  height: 24px;
+}
+.toggle-switch::after {
+  width: 20px;
+  height: 20px;
+  transform: translateX(26px); /* roughly width - knob size - 4px padding */
+}
 
   /* CTA button adjusts size */
   .cta-button {
@@ -786,7 +840,7 @@ body {
 
 .terminal-frame {
   position: relative;
-  background-color: #000; /* Black inside */
+  background-color: #0f120f; /* Black inside */
   border: 2px solid #008800; /* initial green border */
   padding: 20px;
   width: 100%;
@@ -797,30 +851,274 @@ body {
   transition: all 0.3s ease;
 
   /* Glow animation */
-  box-shadow: 0 0 15px #008800, 0 0 30px #008800, 0 0 45px #008800;
+  box-shadow: 0 0 8px #008800, 0 0 30px #008800, 0 0 45px #008800;
   animation: borderGlow 6s linear infinite, borderColorCycle 6s linear infinite;
 }
 
 /* Breathing glow animation */
 @keyframes borderGlow {
   0%, 100% {
-    box-shadow: 0 0 15px #008800, 0 0 30px #008800, 0 0 45px #008800;
+    box-shadow: 0 0 8px rgba(0, 136, 0, 0.4), 
+                0 0 16px rgba(0, 136, 0, 0.3), 
+                0 0 24px rgba(0, 136, 0, 0.2);
   }
-  50% {
-    box-shadow: 0 0 25px #00ff00, 0 0 50px #ffff00, 0 0 75px #ff8800;
+  40% {
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.3), 
+                0 0 24px rgba(255, 255, 0, 0.2), 
+                0 0 36px rgba(255, 255, 0, 0.15);
+  }
+}@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 136, 0, 0.4), 
+                0 0 16px rgba(0, 136, 0, 0.3), 
+                0 0 24px rgba(0, 136, 0, 0.2);
+  }
+  40% {
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.3), 
+                0 0 24px rgba(255, 255, 0, 0.2), 
+                0 0 36px rgba(255, 255, 0, 0.15);
   }
 }
 
 /* Circular color cycling on border */
 @keyframes borderColorCycle {
   0%   { border-color: #008800; }
-  25%  { border-color: #ffff00; } /* yellow */
-  50%  { border-color: #ff8800; } /* orange */
-  75%  { border-color: #ffff00; } /* back to yellow */
-  100% { border-color: #008800; } /* back to green */
+  15%  { border-color: #987a03; } /* yellow */
+  40%  { border-color: #a37812; } /* orange */
+  65%  { border-color: #008800; } /* back to yellow */
+  90% { border-color: #008800; } /* back to green */
 }
 
 /* Optional: glowing effect on hover to intensify */
 .terminal-frame:hover {
-  box-shadow: 0 0 25px #00ff00, 0 0 50px #ffff00, 0 0 75px #ff8800;
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.25), 
+              0 0 24px rgba(255, 255, 0, 0.2), 
+              0 0 36px rgba(255, 255, 0, 0.15);
+}
+
+
+/* Button Base */
+.fallout-btn {
+  position: relative;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  color: #00ff00;
+  background-color: #0b0b0b;
+  border: 2px solid #00ff00;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 22px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  margin-bottom: 25px;
+}
+
+/* Scan Line */
+.scan-line {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(0,255,0,0.15) 50%, transparent 100%);
+  pointer-events: none;
+  animation: scan 1.8s linear infinite;
+}
+
+/* Typewriter Text */
+.btn-text {
+  display: inline-block;
+  position: relative;
+  width: auto;         /* show full text immediately */
+  overflow: hidden;    /* keep cursor inside */
+  white-space: nowrap; 
+}
+
+/* Blinking cursor */
+.btn-text::after {
+  content: "_";         /* the blinking pipe */
+  display: inline-block;
+  margin-left: 0px;     /* small gap from text */
+  animation: blink 2.75s step-end infinite;
+}
+
+/* Blink keyframes */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Scan Animation */
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Typewriter Animation */
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Blinking Cursor */
+
+
+/* Hover Glow */
+.fallout-btn:hover,
+.fallout-btn:focus {
+  color: #ffb000;                 /*  amber */
+  border-color: #ffb000;
+  background-color: #001100;      /* stays dark */
+  box-shadow: none;
+  animation: pipboy-select 2.5s linear forwards;
+}
+
+
+/* I AM REALLY */
+/* THINKING OF USING THIS FEATURE WITH ASCII BACKGROUND MOUSE MOVEMENTS */
+/* ACROSS THE ENTIRE GLOBAL SO EVERYTHING TURNS ORANGE WHEN THE MOUSE IS LEFT -- IDENTIFYING ITS LOCALATION IN WALK AWAY, "TRACKING CULTURE" */
+
+@keyframes pipboy-select {
+  0% {
+    border-color: #00ff00;
+    color: #00ff00;
+  }
+  40% {
+    border-color: #cfff00;
+    color: #cfff00;
+  }
+  70% {
+    border-color: #ffb000;
+    color: #ffb000;
+  }
+  100% {
+    border-color: #ffb000;
+    color: #ffb000;
+  }
+}
+
+/* Default for larger screens */
+.terminal-output {
+  font-size: 15px;
+}
+
+/* Small screens: 378px or less */
+@media (max-width: 378px) {
+  .terminal-output {
+    font-size: 13px;
+  }
+}
+
+/* Medium-small screens: 379px - 450px */
+@media (min-width: 379px) and (max-width: 450px) {
+  .terminal-output {
+    font-size: 14px;
+  }
+}
+
+/* Optional: 451px - 850px still uses 15px */
+@media (min-width: 451px) {
+  .terminal-output {
+    font-size: 15px;
+  }
+}
+
+/* Animated gradient for completed hero text */
+.hero-text-gradient {
+  background: linear-gradient(
+    90deg,
+    #00ff00,
+    #a9b501,
+    #009d00,
+    #e09c09
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-breathe 5s ease-in-out infinite;
+}
+
+@keyframes gradient-breathe {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container small text */
+.need-else-container .need-else-text {
+  text-align: center;
+  margin: 8px 0 16px;
+  color: #00ff00;
+  font-size: 14px;
+}
+
+.need-else-container {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+/* Conditions box */
+.conditions-box {
+  background: #0f120f;          /* dark green terminal background */
+  border: 0px solid #0b740b;    /* green border */
+  border-radius: 6px;
+  padding: 8px;
+  color: #376537;               /* green digital text */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.5s ease;
+  cursor: default;
+  margin-left:30px;
+  margin-right:30px;
+
+}
+
+.conditions-box a {
+  color: #097609;
+  text-decoration: underline;
+}
+
+/* Hover effect — slowly shift border and text to orange */
+.conditions-box:hover {
+  border-color: #ffb000;
+  color: #ffb000;
+}
+
+.conditions-box:hover a {
+  color: #ffb000;
+}
+
+.refund-policy {
+  text-align: center;
+  color: #666;
+  line-height: 1.3;
+  letter-spacing: 0.4px;
+}
+
+/* Refund policy text */
+.refund-pip .refund-policy {
+  font-size: 13px;         /* adjust smaller or larger as needed */
+  line-height: 1.2;
+  opacity: 0.85;
+}
+
+
+p.need-else-text {
+  font-size: 10.5px; /* small but readable */
+  line-height: 1.2;
+}
+
+.need-else-text a {
+  font-size: 9px;
+  color: #00ff00;  /* or whatever green you want */
+}
+
+
+.refund-policy span {
+  color: #008800;
 }

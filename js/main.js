@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // LEFT: Logo + Site Name
       navbarLeft.innerHTML = `
         <img src="/assets/images/pipboyapp.png" alt="Pipboy Logo" class="navbar-logo">
-       
       `;
 
       // RIGHT: Pricing, Sign Up, Sign In
@@ -40,6 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
       `;
     }
+
+// Smooth scroll for Pricing link
+const pricingLink = document.querySelector('.nav-btn[href*="pricing"]');
+if (pricingLink) {
+  pricingLink.addEventListener('click', (e) => {
+    e.preventDefault(); // stop default navigation
+    const target = document.getElementById('terminal-pricing');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // update URL hash without page reload
+      history.pushState(null, null, '#pricing');
+    }
+  });
+}
+
   }
 
   populateNavbar();
@@ -47,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== HERO TYPED TEXT =====
   const heroTarget = document.getElementById("hero-typed");
   if (heroTarget && !loggedIn) {
-    const text = "Old-school retro interface meets modern website tracking.";
+    const text = "Old-school retro interface meets modern website tracking -fast & friendly-- A dashboard that cuts through noise, provides deep insights and joyful features while respecting your visitors' privacy.";
 
     const glitchSet = ["▓", "▒", "░", "▢", "◇", "#", "@", "%", "&"];
     const matrixSet = "abCdEFGHIJKLmNOpQRSTUVWXYz0123456789#$%&@".split("");
@@ -65,7 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function typeNext() {
-      if (index >= text.length) return;
+      if (index >= text.length) {
+        // Typing finished — add gradient animation
+        heroTarget.classList.add("hero-text-gradient");
+        return;
+      }
 
       const realChar = text[index];
       const span = document.createElement("span");
@@ -104,135 +122,169 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeNext, 250);
   }
 
-    // ===== EXAMPLE IMAGE HOVER =====
-    const exampleBox = document.querySelector('.example-box');
-    const exampleImg = document.querySelector('.example-img');
-  
-    if (exampleBox && exampleImg) {
-      exampleBox.addEventListener('mouseenter', () => {
-        const angle = Math.random() < 0.5 ? -30 : 30;
-        exampleImg.style.transform = `rotateY(${angle}deg)`;
-      });
-  
-      exampleBox.addEventListener('mouseleave', () => {
-        exampleImg.style.transform = `rotateY(0deg)`;
-      });
+  // ===== EXAMPLE IMAGE HOVER =====
+  const exampleBox = document.querySelector('.example-box');
+  const exampleImg = document.querySelector('.example-img');
+
+  if (exampleBox && exampleImg) {
+    exampleBox.addEventListener('mouseenter', () => {
+      const angle = Math.random() < 0.5 ? -30 : 30;
+      exampleImg.style.transform = `rotateY(${angle}deg)`;
+    });
+
+    exampleBox.addEventListener('mouseleave', () => {
+      exampleImg.style.transform = `rotateY(0deg)`;
+    });
+  }
+
+  // ===== PLANS DATA =====
+  const plans = {
+    blogger: {
+      image: "/assets/images/hex-kudos.png",
+      monthly: `$4 / MONTH
+
+SITES: 2
+HITS / MONTH: 10,000
+STATUS: ACTIVE
+FEATURES: ALL INCLUDED`,
+      yearly: `$40 / YEAR
+
+SITES: 2
+HITS / MONTH: 10,000
+STATUS: ACTIVE
+FEATURES: ALL INCLUDED`
+    },
+    business: {
+      image: "/assets/images/hex-content.png",
+      monthly: `$7 / MONTH
+
+SITES: 20
+HITS / MONTH: 100,000
+STATUS: MOST POPULAR
+FEATURES: FULL ACCESS`,
+      yearly: `$70 / YEAR
+
+SITES: 20
+HITS / MONTH: 100,000
+STATUS: MOST POPULAR
+FEATURES: FULL ACCESS`
+    },
+    enterprise: {
+      image: "/assets/images/hex-uptime.png",
+      monthly: `$15 / MONTH
+
+ENTERPRISE MODULES:
+• REAL-TIME WEBHOOK EVENTS
+• MULTIPLE EMAIL RECIPIENTS
+• CUSTOM UPTIME INTERVALS
+• SECURED PUBLIC STATS
+• GROUPED SITE REPORTING
+• MORE FEATURES IN DEVELOPMENT`,
+      yearly: `$150 / YEAR
+
+ENTERPRISE MODULES:
+• REAL-TIME WEBHOOK EVENTS
+• MULTIPLE EMAIL RECIPIENTS
+• CUSTOM UPTIME INTERVALS
+• SECURE PUBLIC STATS (PASSCODE)
+• GROUPED SITE REPORTING
+• MORE FEATURES IN DEVELOPMENT`
     }
-  
-    // ===== PLANS DATA =====
-    const plans = {
-      blogger: {
-        image: "/assets/images/hex-kudos.png",
-        monthly: `$4 / MONTH
-  
-  SITES: 2
-  HITS / MONTH: 10,000
-  STATUS: ACTIVE
-  FEATURES: ALL INCLUDED`,
-        yearly: `$40 / YEAR
-  
-  SITES: 2
-  HITS / MONTH: 10,000
-  STATUS: ACTIVE
-  FEATURES: ALL INCLUDED`
-      },
-      business: {
-        image: "/assets/images/hex-content.png",
-        monthly: `$7 / MONTH
-  
-  SITES: 20
-  HITS / MONTH: 100,000
-  STATUS: MOST POPULAR
-  FEATURES: FULL ACCESS`,
-        yearly: `$70 / YEAR
-  
-  SITES: 20
-  HITS / MONTH: 100,000
-  STATUS: MOST POPULAR
-  FEATURES: FULL ACCESS`
-      },
-      enterprise: {
-        image: "/assets/images/hex-uptime.png",
-        monthly: `$15 / MONTH
-  
-  ENTERPRISE MODULES:
-  • REAL-TIME WEBHOOK EVENTS
-  • MULTIPLE EMAIL RECIPIENTS
-  • CUSTOM UPTIME INTERVALS
-  • SECURE PUBLIC STATS (PASSCODE)
-  • GROUPED SITE REPORTING
-  • MORE FEATURES IN DEVELOPMENT`,
-        yearly: `$150 / YEAR
-  
-  ENTERPRISE MODULES:
-  • REAL-TIME WEBHOOK EVENTS
-  • MULTIPLE EMAIL RECIPIENTS
-  • CUSTOM UPTIME INTERVALS
-  • SECURE PUBLIC STATS (PASSCODE)
-  • GROUPED SITE REPORTING
-  • MORE FEATURES IN DEVELOPMENT`
+  };
+
+  // ===== ELEMENTS =====
+  const tabs = document.querySelectorAll(".tab");
+  const output = document.getElementById("planOutput");
+  const planImage = document.getElementById("planImage");
+  const billingSwitch = document.getElementById("billingSwitch");
+
+  let currentPlan = "blogger";
+  let billingMode = "monthly";
+  let typingInterval = null;
+
+  // ===== TYPEWRITER EFFECT =====
+  function typeText(text) {
+    clearInterval(typingInterval);
+    output.textContent = "";
+    let i = 0;
+    typingInterval = setInterval(() => {
+      if (i < text.length) {
+        output.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typingInterval);
       }
-    };
-  
-    // ===== ELEMENTS =====
-    const tabs = document.querySelectorAll(".tab");
-    const output = document.getElementById("planOutput");
-    const planImage = document.getElementById("planImage");
-    const billingSwitch = document.getElementById("billingSwitch");
-  
-    let currentPlan = "blogger";
-    let billingMode = "monthly";
-    let typingInterval = null;
-  
-    // ===== TYPEWRITER EFFECT =====
-    function typeText(text) {
-      clearInterval(typingInterval);
-      output.textContent = "";
-      let i = 0;
-      typingInterval = setInterval(() => {
-        if (i < text.length) {
-          output.textContent += text.charAt(i);
-          i++;
-        } else {
-          clearInterval(typingInterval);
-        }
-      }, 12);
-    }
-  
-    // ===== LOAD PLAN =====
-    function loadPlan(planKey) {
-      currentPlan = planKey;
-  
-      // Update image
-      planImage.src = plans[planKey].image;
-  
-      // Typewriter content
-      typeText(plans[planKey][billingMode]);
-  
-      // Highlight active tab
-      tabs.forEach(tab => {
-        const isActive = tab.dataset.plan === planKey;
-        tab.classList.toggle("active", isActive);
-        tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
-    }
-  
-    // ===== TAB CLICK =====
+    }, 12);
+  }
+
+  // ===== LOAD PLAN =====
+  function loadPlan(planKey) {
+    currentPlan = planKey;
+
+    // Update image
+    planImage.src = plans[planKey].image;
+
+    // Typewriter content
+    typeText(plans[planKey][billingMode]);
+
+    // Highlight active tab
     tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        loadPlan(tab.dataset.plan);
-      });
+      const isActive = tab.dataset.plan === planKey;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
     });
-  
-    // ===== BILLING TOGGLE =====
-    billingSwitch.addEventListener("click", () => {
-      billingMode = billingMode === "monthly" ? "yearly" : "monthly";
-      billingSwitch.classList.toggle("yearly", billingMode === "yearly");
-      loadPlan(currentPlan);
+  }
+
+  // ===== TAB CLICK =====
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      loadPlan(tab.dataset.plan);
     });
-  
-    // ===== INITIALIZE =====
-    loadPlan(currentPlan);
-  
   });
-  
+
+  // ===== BILLING TOGGLE =====
+  billingSwitch.addEventListener("click", () => {
+    billingMode = billingMode === "monthly" ? "yearly" : "monthly";
+    billingSwitch.classList.toggle("yearly", billingMode === "yearly");
+    loadPlan(currentPlan);
+  });
+
+  // ===== INITIALIZE =====
+  loadPlan(currentPlan);
+
+  // ===== FALL OUT BUTTON TYPEWRITER DELAYS =====
+  // Free Trial Button - 9s delay on page load
+  const freeTrialBtn = document.getElementById("free-trial-btn");
+  if (freeTrialBtn) {
+    const freeTrialText = freeTrialBtn.querySelector(".btn-text");
+    freeTrialText.style.width = "0"; // hide initially
+
+    setTimeout(() => {
+      freeTrialText.style.animation = "typewriter 3s steps(60) forwards, blink 0.75s step-end infinite";
+    }, 9000); // 9 second delay
+  }
+
+  // Need Something Else Badge - trigger when visible
+  const needElseBtn = document.getElementById("need-something-else");
+  if (needElseBtn) {
+    const needElseText = needElseBtn.querySelector(".btn-text");
+    needElseText.style.width = "0"; // hide initially
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              needElseText.style.animation = "typewriter 2.5s steps(24) forwards, blink 0.75s step-end infinite";
+            }, 2500); // 2.5s delay when visible
+            observer.unobserve(entry.target); // only trigger once
+          }
+        });
+      },
+      { threshold: 0.5 } // 50% visible
+    );
+
+    observer.observe(needElseBtn);
+  }
+
+});

@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pipboy.app</title>
   <link rel="stylesheet" href="css/style.css">
+
+<!-- Visitors From Earth CSS -->
+<link rel="stylesheet" href="assets/visitors-earth/visitors-earth.css">
+
+<!-- Visitors From Earth JS -->
+<script src="assets/visitors-earth/visitors-earth.js" defer></script>
+
 </head>
 <body>
 
@@ -71,11 +78,21 @@
       </div>
     
     <p id="hero-typed"></b></p>
+
+    <!-- FREE TRIAL BUTTON -->
+<button class="fallout-btn">
+  <span class="scan-line"></span>
+  <span class="btn-text" data-text="START YOUR 7-DAY FREE TRIAL">START YOUR 7-DAY FREE TRIAL</span>
+</button>
+
     <div class="hero-buttons">
-      <a href="/auth/signup.html" class="nav-btn">
-        <img src="/assets/images/signup.png" class="nav-icon">
-        Sign Up
-      </a>
+   
+
+
+<a href="/auth/signup.html" class="nav-btn">
+  <img src="/assets/images/signup.png" class="nav-icon">
+  Sign Up
+</a>
       
       <a href="/auth/signin.html" class="nav-btn">
         <img src="/assets/images/signin.png" class="nav-icon">
@@ -180,7 +197,7 @@
 <!-- ======================= -->
 <!-- PIPBOY PRICING TABS -->
 <!-- ======================= -->
-<section class="pricing-terminal pipboy-pricing">
+<section class="pricing-terminal pipboy-pricing" id="terminal-pricing">
   <div class="terminal-frame">
     <div class="terminal-header">
       <span class="terminal-title"> START YOUR FREE TRIAL...  </span>
@@ -228,6 +245,50 @@
     </div>
   </div>
 </section>
+
+<div class="fallout-btn">
+  <span class="scan-line"></span>
+  <span class="btn-text">
+    Need Something Else?
+  </span>
+</div>
+
+<!-- Small centered text with mailto link -->
+<p class="need-else-text">
+  Need more sites, or hits, beyond our plans? 
+  <a href="mailto:help@pipboy.app?subject=I%20Need%20More%20🟢👽">Get in touch.</a>
+</p>
+
+<!-- Styled conditions box -->
+<div class="conditions-box">
+  Your plan's hit limit covers total analytics hits across all your sites, averaged over a period of 3 months — that allows for the occasional burst (that happens). 
+  If you go over your plan's limit, additional hits cost $0.40/month per 10,000 hits (excl. applicable Tax&VAT), charged at the beginning of each month for yearly plans. 
+  We have a viewable usage meter that allows you to see everything at a glance. Any questions? Contact us at 
+  <a href="mailto:help@pipboy.app">help@pipboy.app</a>.
+</div>
+
+<!-- Refund policy text below container -->
+ <div class="refund-pip" id="refund-pip-id">
+<p class="refund-policy">
+  30-day refund policy • <span>no questions asked</span>
+</p>
+</div>
+
+
+<section class="visitors-earth-widget">
+  <div class="visitors-globe">
+    <!-- ASCII globe output -->
+    <div id="visitors-earth"></div>
+  </div>
+
+  <!-- Visitor counter -->
+  <div class="visitors-counter">0</div>
+  <div class="visitors-all-countries"> 🇦🇪🇦🇱🇦🇲🇦🇴🇦🇷🇦🇹🇦🇺🇦🇽🇦🇿🇧🇦🇧🇧🇧🇩🇧🇪🇧🇬🇧🇭🇧🇴🇧🇷🇧🇾🇨🇦🇨🇭🇨🇱🇨🇳🇨🇴🇨🇷🇨🇺🇨🇻🇨🇾🇨🇿🇩🇪🇩🇰🇩🇴🇩🇿🇪🇨🇪🇪🇪🇬🇪🇸🇪🇹🇫🇮🇫🇷🇬🇧🇬🇪🇬🇬🇬🇭🇬🇵🇬🇷🇬🇹🇭🇰🇭🇷🇭🇺🇮🇩🇮🇪🇮🇱🇮🇳🇮🇶🇮🇷🇮🇸🇮🇹🇯🇪🇯🇲🇯🇴🇯🇵🇰🇪🇰🇬🇰🇭🇰🇷🇰🇼🇰🇿🇱🇧🇱🇮🇱🇰🇱🇹🇱🇺🇱🇻🇲🇦🇲🇩🇲🇪🇲🇬🇲🇰🇲🇳🇲🇴🇲🇶🇲🇹🇲🇺🇲🇻🇲🇼🇲🇽🇲🇾🇳🇬🇳🇮🇳🇱🇳🇴🇳🇵🇳🇿🇵🇦🇵🇪🇵🇭🇵🇰🇵🇱🇵🇷🇵🇹🇵🇾🇶🇦🇷🇪🇷🇴🇷🇸🇷🇺🇸🇦🇸🇪🇸🇬🇸🇮🇸🇰🇸🇹🇸🇾🇹🇭🇹🇳🇹🇷🇹🇼🇺🇦🇺🇬🇺🇸🇺🇾🇺🇿🇻🇪🇻🇳🇽🇰🇿🇦🇿🇼 </div>
+
+  <!-- Flags burst container -->
+  <div class="visitors-flags-container"></div>
+</section>
+
 
   <script src="js/main.js"></script>
 </body>
